@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Boats</h1>
+
+<table id="boats">
+  <tr>
+    <th>Jetty</th>
+    <th>Slot</th>
+    <th>Name</th>
+    <th>Width</th>
+    <th>Length</th>
+    <th>Owner</th>
+  </tr>
+  <% @boats.each do |boat| %>
+    <tr>
+      <td><%= boat.slot.jetty %></th>
+      <td><%= boat.slot.id %></th>
+      <td><%= boat.name %></th>
+      <td><%= boat.width %></th>
+      <td><%= boat.length %></th>
+      <td><%= boat.member.name_with_member_number %></th>
+      <td><%= link_to "Show more", boat %></td>
+    </tr>
+    <p>
+    </p>
+  <% end %>
+</table>
+
+<%= link_to "New boat", new_boat_path %>

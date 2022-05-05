@@ -1,0 +1,42 @@
+<%= form_with(model: boat) do |form| %>
+  <% if boat.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(boat.errors.count, "error") %> prohibited this boat from being saved:</h2>
+
+      <ul>
+        <% boat.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :width, style: "display: block" %>
+    <%= form.number_field :width %>
+  </div>
+
+  <div>
+    <%= form.label :length, style: "display: block" %>
+    <%= form.number_field :length %>
+  </div>
+
+  <div>
+    <%= form.label 'Owner', style: "display: block"%>
+    <%= form.collection_select :member_id, Member.order(:member_number), :id, :name_with_member_number %>
+  </div>
+
+  <div>
+    <%= form.label 'Slot', style: "display: block"%>
+    <%= form.collection_select :slot_id, Slot.all, :id, :slot_with_jetty_number %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

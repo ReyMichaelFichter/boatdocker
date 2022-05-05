@@ -1,0 +1,27 @@
+<div id="<%= dom_id boat %>">
+  <p>
+    <strong>Name:</strong>
+    <%= boat.name %>
+  </p>
+
+  <p>
+    <strong>Width:</strong>
+    <%= boat.width %>
+  </p>
+
+  <p>
+    <strong>Length:</strong>
+    <%= boat.length %>
+  </p>
+
+  <p>
+    <strong>Owner:</strong>
+    <%= boat.member.name_with_member_number %>
+  </p>
+
+  <p>
+    <strong>Docked at:</strong>
+    <%= boat.slot.slot_with_jetty_number %>
+  </p>
+
+</div>
