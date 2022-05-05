@@ -65,6 +65,6 @@ class SlotsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def slot_params
-      params.require(:slot).permit(:length, :width, :jetty)
+      params.require(:slot).permit(:length, :width, :jetty, :number)
     end
 end

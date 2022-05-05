@@ -12,6 +12,11 @@
   <% end %>
 
   <div>
+    <%= form.label "Slot Number", style: "display: block" %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div>
     <%= form.label :length, style: "display: block" %>
     <%= form.number_field :length %>
   </div>
