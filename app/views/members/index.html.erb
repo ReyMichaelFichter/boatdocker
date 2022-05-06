@@ -1,14 +1,43 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Members</h1>
+<table id="members" class="table-auto">
+  <thead class="border-b bg-gray-800">
+    <tr>
+      <th class="text-sm font-medium text-white px-6 py-4">Namn</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Telefon</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Email</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Medlemsnummer</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Båt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr class="bg-white border-b">
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to "#{member.first_name} #{member.last_name}", member %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= member.phone_number %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= member.email %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= member.member_number %> 
+        </td>
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to member.boat.name, boat_path(member.boat) %> 
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div id="members">
-  <% @members.each do |member| %>
-    <%= render member %>
-    <p>
-      <%= link_to "Show this member", member %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New member", new_member_path %>
+<a href="<%= new_member_path %>"%>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded m-4">
+    Ny medlem
+  </button>
+</a>
