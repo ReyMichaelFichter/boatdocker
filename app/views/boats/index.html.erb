@@ -1,27 +1,42 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Boats</h1>
-
-<table id="boats">
-  <tr>
-    <th>Slot</th>
-    <th>Name</th>
-    <th>Width</th>
-    <th>Length</th>
-    <th>Owner</th>
-  </tr>
-  <% @boats.each do |boat| %>
+<div class="flex-1">
+<table id="boats" class="table-auto">
+  <thead class="border-b bg-gray-800">
     <tr>
-      <td><%= link_to "Jetty #{boat.slot.jetty} slot #{boat.slot.id}", boat.slot%></th>
-      <td><%= boat.slot.id %></th>
-      <td><%= link_to boat.name, boat %></th>
-      <td><%= boat.width %></th>
-      <td><%= boat.length %></th>
-      <td><%= link_to boat.member.name_with_member_number, boat.member %></th>
+      <th class="text-sm font-medium text-white px-6 py-4">Bryggplats (Brygga)</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Båt</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Bredd</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Längd</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Ägare</th>
     </tr>
-    <p>
-    </p>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @boats.each do |boat| %>
+      <tr class="bg-white border-b">
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to boat.slot.slot_with_jetty_number, boat.slot%>
+        </th>
+        <td class="text-sm text-blue-500 hover:text-blue-800  font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to boat.name, boat %>
+        </th>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= boat.width %> (<%= boat.width - boat.slot.width %>) 
+        </th>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= boat.length %> (<%= boat.length - boat.slot.length %>)
+        </th>
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to boat.member.name_with_member_number, boat.member %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to "New boat", new_boat_path %>
+<a href="<%=new_boat_path%>"%>
+<button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded m-4">
+  Lägg till ny båt
+</button>
+</a>
+</div>

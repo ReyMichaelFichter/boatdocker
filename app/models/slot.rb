@@ -7,6 +7,6 @@ class Slot < ApplicationRecord
     validates :width, presence: true, numericality: { only_integer: true, greater_than: 50, less_than: 800 } # Ensures that user only tries to input centimeter values
 
     def slot_with_jetty_number
-        "jetty #{jetty} - slot #{id}"
+        "#{number} (#{jetty})"
     end
 end
