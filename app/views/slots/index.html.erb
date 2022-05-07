@@ -1,14 +1,47 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Slots</h1>
+<table id="members" class="table-auto">
+  <thead class="border-b bg-gray-800">
+    <tr>
+      <th class="text-sm font-medium text-white px-6 py-4">Brygga</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Plats</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Längd</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Bredd</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Båt</th>
+      <th class="text-sm font-medium text-white px-6 py-4">Båtägare</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @slots.each do |slot| %>
+      <tr class="bg-white border-b">
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= slot.jetty %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= slot.number %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= slot.length %> 
+        </td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+          <%= slot.width %> 
+        </td>
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to slot.boat.name, boat_path(slot.boat) if slot.boat %> 
+        </td>
+        <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
+          <%= link_to slot.boat.member.name_with_member_number, member_path(slot.boat.member) if slot.boat%> 
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<div id="slots">
-  <% @slots.each do |slot| %>
-    <%= render slot %>
-    <p>
-      <%= link_to "Show this slot", slot %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New slot", new_slot_path %>
+<a href="<%= new_slot_path %>"%>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded m-4">
+    Ny bryggplats
+  </button>
+</a>
