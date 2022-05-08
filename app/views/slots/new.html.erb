@@ -1,9 +1,12 @@
-<h1>New slot</h1>
+<h1 class="font-medium py-4 text-2xl">Ny bryggplats</h1>
 
 <%= render "form", slot: @slot %>
 
 <br>
 
-<div>
-  <%= link_to "Back to slots", slots_path %>
-</div>
+<a href="<%= slots_path %>"%>
+  <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+    Tillbaka till bryggplatser
+  </button>
+</a>
+

@@ -27,10 +27,10 @@
           <%= slot.width %> 
         </td>
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
-          <%= link_to slot.boat.name, boat_path(slot.boat) if slot.boat %> 
+          <%= link_to slot.boat.name, boat_path(slot.boat) unless slot.boat.nil? %> 
         </td>
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
-          <%= link_to slot.boat.member.name_with_member_number, member_path(slot.boat.member) if slot.boat%> 
+          <%= link_to slot.boat.member.name_with_member_number, member_path(slot.boat.member) unless slot.boat.nil? || slot.boat.member.nil? %> 
         </td>
         <td>
           

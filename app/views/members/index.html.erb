@@ -26,7 +26,7 @@
           <%= member.member_number %> 
         </td>
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
-          <%= link_to member.boat.name, boat_path(member.boat) if member.boat %> 
+          <%= link_to member.boat.name, boat_path(member.boat) unless member.boat.nil? %> 
         </td>
         <td>
           

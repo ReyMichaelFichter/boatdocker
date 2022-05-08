@@ -12,26 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label "Slot Number", style: "display: block" %>
+    <%= form.label "Bryggplatsnummer", style: "display: block" %>
     <%= form.text_field :number %>
   </div>
 
   <div>
-    <%= form.label :length, style: "display: block" %>
+    <%= form.label "Längd", style: "display: block" %>
     <%= form.number_field :length %>
   </div>
 
   <div>
-    <%= form.label :width, style: "display: block" %>
+    <%= form.label "Bredd", style: "display: block" %>
     <%= form.number_field :width %>
   </div>
 
   <div>
-    <%= form.label :jetty, style: "display: block" %>
+    <%= form.label "Brygga", style: "display: block" %>
     <%= form.number_field :jetty %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Skapa Bryggplats", class: "bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mt-4" %>
   </div>
 <% end %>

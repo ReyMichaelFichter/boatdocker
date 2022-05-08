@@ -15,7 +15,7 @@
     <% @boats.each do |boat| %>
       <tr class="bg-white border-b">
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
-          <%= link_to boat.slot.slot_with_jetty_number, boat.slot%>
+          <%= link_to boat.slot.slot_with_jetty_number, boat.slot unless boat.slot.nil?%>
         </td>
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
           <%= link_to boat.name, boat %>
@@ -27,7 +27,7 @@
           <%= boat.length %> (<%= boat.length - boat.slot.length %>)
         </td>
         <td class="text-sm text-blue-500 hover:text-blue-800 font-light px-6 py-4 whitespace-nowrap">
-          <%= link_to boat.member.name_with_member_number, boat.member %>
+          <%= link_to boat.member.name_with_member_number, boat.member unless boat.member.nil? %>
         </td>
       </tr>
     <% end %>
